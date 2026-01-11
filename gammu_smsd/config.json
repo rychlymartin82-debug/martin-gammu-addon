@@ -1,0 +1,29 @@
+{
+  "name": "Gammu SMSD",
+  "version": "1.0.0",
+  "slug": "gammu_smsd",
+  "description": "SMS gateway using Gammu SMSD for Huawei E3372h and similar modems.",
+  "arch": ["aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {},
+  "ports_description": {},
+  "host_network": false,
+  "host_dbus": false,
+  "host_ipc": false,
+  "host_pid": false,
+  "full_access": false,
+  "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
+  "devices": ["/dev/ttyUSB0:/dev/ttyUSB0:rwm", "/dev/ttyUSB1:/dev/ttyUSB1:rwm", "/dev/ttyACM0:/dev/ttyACM0:rwm"],
+  "options": {
+    "device": "/dev/ttyUSB0",
+    "pin": "",
+    "loglevel": "INFO"
+  },
+  "schema": {
+    "device": "str",
+    "pin": "str?",
+    "loglevel": "str"
+  },
+  "image": "ghcr.io/YOUR_GITHUB_USERNAME/gammu-smsd:latest"
+}
