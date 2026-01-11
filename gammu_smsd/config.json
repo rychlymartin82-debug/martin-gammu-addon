@@ -14,7 +14,11 @@
   "host_pid": false,
   "full_access": false,
   "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
-  "devices": ["/dev/ttyUSB0:/dev/ttyUSB0:rwm", "/dev/ttyUSB1:/dev/ttyUSB1:rwm", "/dev/ttyACM0:/dev/ttyACM0:rwm"],
+  "devices": [
+    "/dev/ttyUSB0:/dev/ttyUSB0:rwm",
+    "/dev/ttyUSB1:/dev/ttyUSB1:rwm",
+    "/dev/ttyACM0:/dev/ttyACM0:rwm"
+  ],
   "options": {
     "device": "/dev/ttyUSB0",
     "pin": "",
@@ -24,4 +28,5 @@
     "device": "str",
     "pin": "str?",
     "loglevel": "str"
+  }
 }
