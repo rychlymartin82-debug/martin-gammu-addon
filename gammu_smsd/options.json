@@ -1,0 +1,5 @@
+{
+  "device": "/dev/ttyUSB0",
+  "pin": "",
+  "loglevel": "INFO"
+}
