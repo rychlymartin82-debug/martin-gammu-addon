@@ -6,6 +6,8 @@
   "arch": ["aarch64"],
   "startup": "services",
   "boot": "auto",
+  "image": "local/gammu_smsd",
+  "build": {},
   "ports": {},
   "ports_description": {},
   "host_network": false,
@@ -30,3 +32,4 @@
     "loglevel": "str"
   }
 }
+
