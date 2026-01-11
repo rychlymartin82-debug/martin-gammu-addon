@@ -24,6 +24,4 @@
     "device": "str",
     "pin": "str?",
     "loglevel": "str"
-  },
-  "image": "ghcr.io/YOUR_GITHUB_USERNAME/gammu-smsd:latest"
 }
