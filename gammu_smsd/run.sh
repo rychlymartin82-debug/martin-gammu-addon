@@ -1,42 +1,24 @@
-#!/usr/bin/with-contenv bashio
-set -e
+#!/usr/bin/env bash
 
-bashio::log.info "Starting Gammu SMSD add-on..."
+CONFIG_PATH=/data/options.json
 
-# Load configuration
-DEVICE=$(bashio::config 'device')
-PIN=$(bashio::config 'pin')
-LOGLEVEL=$(bashio::config 'loglevel')
+DEVICE=$(jq -r '.device' $CONFIG_PATH)
+PIN=$(jq -r '.pin' $CONFIG_PATH)
+LOGLEVEL=$(jq -r '.loglevel' $CONFIG_PATH)
 
-bashio::log.info "Using device: ${DEVICE}"
-bashio::log.info "Log level: ${LOGLEVEL}"
+echo "[gammu] Starting SMSD with device $DEVICE"
 
-CONFIG_DIR="/data"
-SMSD_CONFIG="/etc/gammu-smsdrc"
-
-# Create directories
-mkdir -p /data/inbox /data/outbox /data/sent /data/error
-
-# Generate SMSD config
-cat <<EOF > "${SMSD_CONFIG}"
+cat <<EOF >/etc/gammu-smsdrc
 [gammu]
-device = ${DEVICE}
+device = $DEVICE
 connection = at
 
 [smsd]
 service = files
 logfile = /data/smsd.log
 logformat = textall
-debuglevel = ${LOGLEVEL}
-inboxpath = /data/inbox/
-outboxpath = /data/outbox/
-sentpath = /data/sent/
-errorpath = /data/error/
-PIN = ${PIN}
+PIN = $PIN
 EOF
 
-bashio::log.info "Configuration file created at ${SMSD_CONFIG}"
+gammu-smsd -c /etc/gammu-smsdrc --log-level "$LOGLEVEL"
 
-# Start SMSD
-bashio::log.info "Launching Gammu SMSD..."
-exec gammu-smsd --config "${SMSD_CONFIG}" --pid /data/smsd.pid
