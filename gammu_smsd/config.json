@@ -9,10 +9,6 @@
   "ports": {},
   "ports_description": {},
   "host_network": false,
-  "host_dbus": false,
-  "host_ipc": false,
-  "host_pid": false,
-  "full_access": false,
   "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
   "devices": [
     "/dev/ttyUSB0",
@@ -30,5 +26,6 @@
     "loglevel": "str"
   }
 }
+
 
 
