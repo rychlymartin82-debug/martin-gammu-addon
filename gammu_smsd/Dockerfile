@@ -1,9 +1,10 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:14.0.0
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:3.19
 FROM ${BUILD_FROM}
 
-RUN apk add --no-cache gammu gammu-smsd bash
+RUN apk add --no-cache gammu gammu-smsd bash jq
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
 CMD [ "/run.sh" ]
+
