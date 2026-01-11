@@ -6,7 +6,6 @@
   "arch": ["aarch64"],
   "startup": "services",
   "boot": "auto",
-  "image": "local/gammu_smsd",
   "ports": {},
   "ports_description": {},
   "host_network": false,
@@ -16,9 +15,9 @@
   "full_access": false,
   "privileged": ["SYS_ADMIN", "SYS_RAWIO"],
   "devices": [
-    "/dev/ttyUSB0:/dev/ttyUSB0:rwm",
-    "/dev/ttyUSB1:/dev/ttyUSB1:rwm",
-    "/dev/ttyACM0:/dev/ttyACM0:rwm"
+    "/dev/ttyUSB0",
+    "/dev/ttyUSB1",
+    "/dev/ttyACM0"
   ],
   "options": {
     "device": "/dev/ttyUSB0",
